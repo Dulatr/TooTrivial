@@ -1,5 +1,5 @@
 {
-  "name": "tell-me-a-joke",
+  "name": "trivia",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
