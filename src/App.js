@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Services from './modules/services';
-import * as Components from './modules/components'
+import * as Components from './modules/components';
+import * as Util from './modules/utility';
 
 class App extends React.Component{
     constructor(props){
@@ -44,9 +45,10 @@ class App extends React.Component{
             this.correct_answer = correct_answer;
             let incorrect_answers = r.results[0].incorrect_answers;
             let ans = correct_answer.concat(incorrect_answers);
+
             this.setState({
                 question:quest,
-                answers:ans,
+                answers:Util.shuffle(ans),
                 visible:false
             });
         })(); 
