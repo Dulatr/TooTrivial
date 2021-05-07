@@ -7,7 +7,7 @@ function shuffle(x = []){
         return;
     }
 
-    var currentPosition = x.length;
+    var currentPosition = x.length-1;
     var temp, nextPostion;
     while(currentPosition != 0){
         // Pick a random position
@@ -25,6 +25,8 @@ function shuffle(x = []){
 
         return x;
     }
+
+    return x;
 }
 
 export {
