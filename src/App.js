@@ -1,10 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import * as Services from './modules/services';
 import * as Components from './modules/components';
 import * as Util from './modules/utility';
 
 class App extends React.Component{
-    constructor(props){
+    constructor(props) {
         super(props);
         this.API = new Services.API();
         this.onSkip = this.onSkip.bind(this);
@@ -21,23 +22,47 @@ class App extends React.Component{
         this.chosenAnswer = "";
         this.correct_answer = "";
 
+        // store a reference to the answer list for modifying
+        // the radio button visual states
+        this.answersRef = React.createRef();
     }
-    async componentDidMount(){
+
+    // Methods
+    clearRadioButtons() {
+        var children = ReactDOM.findDOMNode(this.answersRef.current).children[1].children;
+        
+        for (const element of children) {
+            if (element.name === "answer") {
+                element.checked = false;                
+            }
+        }      
+    }
+
+    // Events
+    async componentDidMount() {
         this.token = await this.API.getSessionToken();
         //this just starts the app with a question
         this.onSkip();
     }
-    onChange(e){
+
+    onChange(e) {
         this.chosenAnswer = e.target.value;
     }
-    onSubmit(e){
+
+    onSubmit(e) {
+        // if no selection, do nothing for now
+        if (!this.chosenAnswer) {
+            return;
+        }
+
         let checkTrue = (this.chosenAnswer === this.correct_answer[0]);
         this.setState({
             visible:true,
             isCorrect:checkTrue
         });
     }
-    onSkip(e){
+
+    onSkip(e) {
         (async () => {
             let r = await this.API.getNewPanel(this.token);
             let quest = r.results[0].question.replace(/&quot;/g,"'");
@@ -52,9 +77,13 @@ class App extends React.Component{
                 visible:false
             });
         })(); 
+
+        this.chosenAnswer = "";
+        this.clearRadioButtons();
     }
 
-    render(){
+    // Rendering
+    render() {
         return (
             <div className="App">
                 <Components.QuestionPanel 
@@ -62,7 +91,8 @@ class App extends React.Component{
                     answers={this.state.answers}
                     onSkip={this.onSkip}
                     onSubmit={this.onSubmit}
-                    onChange={this.onChange}/>
+                    onChange={this.onChange}
+                    ref={this.answersRef}/>
                 {   
                     this.state.visible && 
 
