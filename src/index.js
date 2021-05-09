@@ -1,7 +1,15 @@
 import ReactDOM from 'react-dom';
-import * as Application from './App.js';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import {createBrowserHistory} from 'history';
+import App from './app.js';
+import Home from './modules/home.js';
+
+const history = createBrowserHistory();
 
 ReactDOM.render(
-    <Application.App/>, 
+    <Router history={history}>
+        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/trivia/:category" component={App}/>   
+    </Router>, 
     document.getElementById('root')
 ); 
