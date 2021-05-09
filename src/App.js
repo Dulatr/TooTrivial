@@ -43,7 +43,6 @@ class App extends React.Component{
         this.token = await this.API.getSessionToken();
         //this just starts the app with a question
         this.onSkip();
-        console.log(this.props);
     }
 
     onChange(e) {

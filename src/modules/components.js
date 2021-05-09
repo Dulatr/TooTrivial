@@ -1,5 +1,6 @@
 // Imports
 import React from 'react';
+import {convertID} from './utility';
 
 /////////////////////////////////////////////////////////////
 // a holder for the trivia question
@@ -71,7 +72,7 @@ class CategoryBox extends React.Component {
         return (
             <div>
                 <h1 onClick={this.props.onClick} id={this.props.ID}>{this.props.header}</h1>
-                <h3 onClick={this.props.onClick} id={this.props.ID}>{this.props.content}</h3>
+                <h3 id={this.props.ID}>{this.props.content}</h3>
             </div>
         );
     }
@@ -83,7 +84,9 @@ class CategoryList extends React.Component {
         var categories = this.props.content.map(
             (x) => (
                 <div>
-                    <CategoryBox onClick={this.props.onClick} header={x}/>
+                    <CategoryBox onClick={this.props.onClick} 
+                        header={convertID(x)}
+                        ID={x}/>
                     <br/>
                 </div>
             )

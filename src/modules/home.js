@@ -9,7 +9,7 @@ class Home extends React.Component {
         this.categories = ["any",9,15];
     }
     onClick(e) {
-        this.props.history.push(`/trivia/${e.target.textContent}`);
+        this.props.history.push(`/trivia/${e.target.id}`);
     }
     render() {
         return (

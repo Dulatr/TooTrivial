@@ -29,6 +29,25 @@ function shuffle(x = []) {
     return x;
 }
 
+// Category Code Converter
+// returns name of category as a string
+function convertID(id) {
+    if (id === undefined) {
+        return;
+    }
+    if (id === "any") {
+        return "Any Category";
+    }
+    if (id === 9) {
+        return "General Knowledge";
+    }
+    if (id === 15) {
+        return "Video Games";
+    }
+    return;
+}
+
 export {
-    shuffle
+    shuffle,
+    convertID
 }
