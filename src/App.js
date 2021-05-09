@@ -43,6 +43,7 @@ class App extends React.Component{
         this.token = await this.API.getSessionToken();
         //this just starts the app with a question
         this.onSkip();
+        console.log(this.props);
     }
 
     onChange(e) {
@@ -64,7 +65,7 @@ class App extends React.Component{
 
     onSkip(e) {
         (async () => {
-            let r = await this.API.getNewPanel(this.token);
+            let r = await this.API.getNewPanel(this.token,this.props.match.params.category);
             let quest = r.results[0].question.replace(/&quot;/g,"'");
             let correct_answer = [r.results[0].correct_answer];
             this.correct_answer = correct_answer;

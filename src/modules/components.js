@@ -64,11 +64,39 @@ class QuestionPanel extends React.Component{
         );
     }
 }
+
+//
+class CategoryBox extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1 onClick={this.props.onClick} id={this.props.ID}>{this.props.header}</h1>
+                <h3 onClick={this.props.onClick} id={this.props.ID}>{this.props.content}</h3>
+            </div>
+        );
+    }
+}
+
+//
+class CategoryList extends React.Component {
+    render() {
+        var categories = this.props.content.map(
+            (x) => (
+                <div>
+                    <CategoryBox onClick={this.props.onClick} header={x}/>
+                    <br/>
+                </div>
+            )
+        );
+        return categories;
+    }
+}
 /////////////////////////////////////////////////////////////
 
 // what components should be visible from the module
 export {
     QuestionBox,
     AnswersList,
-    QuestionPanel
+    QuestionPanel,
+    CategoryList
 };
