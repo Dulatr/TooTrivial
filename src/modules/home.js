@@ -14,6 +14,11 @@ class Home extends React.Component {
     render() {
         return (
             <div>
+                <div class="HomeHeader">
+                    <h1>TooTrivial</h1>
+                    <h3>A trivia application to test your knowledge!</h3>
+                    <h4>Select a category below by clicking on it:</h4>
+                </div>
                 <CategoryList content={this.categories}
                     onClick={this.onClick}/>
             </div>

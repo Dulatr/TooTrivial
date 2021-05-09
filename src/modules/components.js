@@ -71,8 +71,8 @@ class CategoryBox extends React.Component {
     render() {
         return (
             <div>
-                <h1 onClick={this.props.onClick} id={this.props.ID}>{this.props.header}</h1>
-                <h3 id={this.props.ID}>{this.props.content}</h3>
+                <h2 onClick={this.props.onClick} id={this.props.ID}>{this.props.header}</h2>
+                <h4 id={this.props.ID}>{this.props.content}</h4>
             </div>
         );
     }
