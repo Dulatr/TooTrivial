@@ -1,0 +1,24 @@
+.HomeHeader {
+    background-color: rgb(76, 138, 76);
+    border-style: outset;
+    border-color: grey;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.Title {
+    border-style:solid;
+    margin: 30px;
+    font-family: Arial;
+}
+
+.Description {
+    font-family: 'Times New Roman';
+}
+
+.Instruction {
+    font-family: 'Times New Roman';
+    border-style: solid;
+    background-color: honeydew;
+    margin: 30px;
+}

@@ -1,6 +1,7 @@
 // Imports
 import React from 'react';
 import {convertID} from './utility';
+import './components.css';
 
 /////////////////////////////////////////////////////////////
 // a holder for the trivia question
@@ -57,9 +58,9 @@ class QuestionPanel extends React.Component{
                 <QuestionBox content={this.props.question}/>
                 <AnswersList content={this.props.answers}
                     onClick={this.props.onChange}/>
-                <div>
-                    <button onClick={this.props.onSubmit}>Submit</button>
-                    <button onClick={this.props.onSkip}>Skip</button>
+                <div className="triviaButtonGroup">
+                    <button className="triviaButton" onClick={this.props.onSubmit}>Submit</button>
+                    <button className="triviaButton" onClick={this.props.onSkip}>Skip</button>
                 </div>
             </div>
         );
@@ -70,7 +71,7 @@ class QuestionPanel extends React.Component{
 class CategoryBox extends React.Component {
     render() {
         return (
-            <div>
+            <div class="categoryBox">
                 <h2 onClick={this.props.onClick} id={this.props.ID}>{this.props.header}</h2>
                 <h4 id={this.props.ID}>{this.props.content}</h4>
             </div>
