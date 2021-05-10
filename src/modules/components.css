@@ -1,0 +1,44 @@
+/* Category Stylings */
+.categoryBox {
+    border-style: solid;
+    border-color: black;
+    color: rgb(0, 56, 0);
+    margin-top: 14px;
+    padding: 14px;
+    text-align: center;
+    background-color: rgb(169, 202, 169);
+}
+
+/* Trivia Stylings */
+.QuestionPanel {
+    border-style: outset;
+    border-color: grey;
+    color: rgb(0, 56, 0);
+    background-color: rgb(169, 202, 169);
+}
+
+.AnswersList {
+    margin: 14px;
+    text-align: left;
+    font-size: 12pt;
+}
+
+.QuestionBox {
+    margin-left: 30px;
+    margin-right: 30px;
+    color: rgb(0, 56, 0);
+}
+
+.triviaButtonGroup {
+    text-align: center;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.triviaButton {
+    border-radius: 7px;
+    padding: 14px;
+    margin: 14px;
+    font-size: 14pt;
+    width: 120px;
+}

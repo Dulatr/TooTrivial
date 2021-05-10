@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import * as Services from './modules/services';
 import * as Components from './modules/components';
 import * as Util from './modules/utility';
+import './App.css';
 
 class App extends React.Component{
     constructor(props) {
